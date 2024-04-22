@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{%block content %}
+    <h1>Lista de Coordinaciones</h1>    
+    <a href ="/coordinaciones/createCoordinacion"
+        class= "btn btn-success">Nuevo</a>
+<table class="table table-hoover">
+    <thead>
+        <tr>
+            <th>id</th> 
+            <th>Nombre</th> 
+            <th>Descripción</th>
+            <th>Centro</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for coordinacion in coordinacion %}
+            <tr>
+                <td>{{ coordinacion.id_Coordinacion }}</td>
+                <td>{{ coordinacion.Nombre_coordinacion }}</td>
+                <td>{{ coordinacion.descripcion_coordinacion}}</td>
+                <td>{{ coordinacion.Centro.Nombre }}</td>
+                <td>
+                    <a href="/coordinaciones/editar/{{coordinacion.id_Coordinacion}}">  
+                        Actualizar
+                    </a>
+                </td>
+                <!-- <td>
+                    <a href="/coordinaciones/eliminar/{{coordinacion.id_Coordinacion}}">  
+                        Eliminar
+                    </a>
+                </td>  -->
+                <td>
+                    <a href="">  
+                        Ingresar a Programas
+                    </a>
+                </td>  
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock%}

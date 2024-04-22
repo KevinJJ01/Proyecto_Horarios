@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centros</title>
+    <link rel="stylesheet" type="text/css" href="../static/home.css">
+</head>
+{%block content %} 
+    <h1 class="title">Centros</h1>
+    <div class="nav">
+        <a class="links" href="/administrador/listarAdmins">Administradores</a>
+        <a class="links" href="/regionales/listarRegion">Regionales</a>
+        <a class="links" href="/centros/listarCentro_g">Centros</a>
+        <!-- <a class="links" href="/transversal/listarTransversal">Transversales</a> -->
+    </div>
+    
+    <h2 class="title-2">Lista de Centros</h2>  
+    
+    <h3 class="message">Elige el Centro donde trabajas</h3>
+
+    <div class="card-container">
+        {% for centro in centros %}
+            <div class="card">
+                <img src="../static/SENA_COLOMBIA-logo-056E74F2AE-seeklogo.png" alt="" srcset="" width="100px" height="100px">
+                <p>{{ centro.Nombre }}</p>
+                <a class="button" href="/coordinaciones/listarCoordinacion/{{centro.id_Centro}}">Ingresar</a>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
+

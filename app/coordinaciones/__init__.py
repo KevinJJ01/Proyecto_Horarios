@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template
-regionales = Blueprint('regionales',__name__,
-                    url_prefix = '/regionales',
+
+
+coordinaciones = Blueprint('coordinaciones',__name__,
+                    url_prefix = '/coordinaciones',
                     template_folder = 'templates')
 
 from . import routes

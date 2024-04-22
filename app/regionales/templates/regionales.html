@@ -1,1 +1,36 @@
-<h1>regionales</h1>
+{% extends 'base.html' %}
+{%block content %}
+    <h1>Lista de Administradores</h1>    
+    <a href ="/regionales/createRegional"
+        class= "btn btn-success">Nuevo</a>
+<table class="table table-hoover">
+    <thead>
+        <tr>
+            <th>id</th> 
+            <th>Nombres</th> 
+            <th>Departamento</th> 
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for regionales in regionales %}
+            <tr>
+                <td>{{ regionales.id_Regional }}</td>
+                <td>{{ regionales.Nombre }}</td>
+                <td>{{ regionales.Departamento }}</td>
+                <td>
+                    <a href="/regionales/editar/{{regionales.id_Regional}}">  
+                        Actualizar
+                    </a>
+                </td>
+                <td>
+                    <a href="/regionales/eliminar/{{regionales.id_Regional}}">  
+                        Eliminar
+                    </a>
+                </td>  
+            </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock%}
