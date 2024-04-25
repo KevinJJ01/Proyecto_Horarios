@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/home_coordinaciones.css">
+</head>
+<body>
+
+<h2 class="title-2">Coordinaciones</h2>
+
+<!-- <div class="nav">
+    <a class="links" href="/transversal/listarTransversal">Transversales</a>
+</div> -->
+    
+<h3 class="message">Elige la Coordinacion donde trabajas</h3>
+
+<a class="button-c" href ="/coordinaciones/createCoordinacion">Nueva</a>
+
+{%block content %}
+    <div class="card-container">
+        {% for coordinacion in coordinacion %}
+        
+            <div class="card">
+                <img src="/static/SENA_COLOMBIA-logo-056E74F2AE-seeklogo.png" alt="" srcset="" width="80px" height="80px">
+                <p>{{ coordinacion.id_Coordinacion }}</p>
+                <p>{{ coordinacion.Nombre_coordinacion }}</p>
+                <p>{{ coordinacion.descripcion_coordinacion}}</p>
+                <div class="button-container">
+                    <a class="button" href="/programas/listarPrograma_home/{{coordinacion.id_Coordinacion}}">Ingresar</a>
+                    <a  class="button" href="{{ url_for('coordinaciones.listar', Id_Centro=coordinacion.Id_Centro) }}">Editar</a>
+                </div>
+            </div>
+        
+        {% endfor %}
+    </div> 
+{% endblock%}
+</body>
+
+

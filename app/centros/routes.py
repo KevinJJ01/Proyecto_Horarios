@@ -33,13 +33,7 @@ def listar_g():
     return render_template("centros.html", 
                             centros = centros)  
 
-#Metodo listar centros en vista para procesos del mismo modulo
-@centros.route('/listarCentro_l')
-def listar_l():
-     ## seleccionar los productos
-    centros = app.models.Centro.query.all()
-    return render_template("centros.html", 
-                            centros = centros) 
+
  
 #Metodo para editar centro por id
 @centros.route('/editar/<id_Centro>',methods=['GET','POST'])

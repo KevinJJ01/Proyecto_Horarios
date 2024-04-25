@@ -1,8 +1,10 @@
+from app import db, login 
+from flask_login import UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.orm import relationship
-from app import db
 
 #Modulo 
-class Administrador(db.Model):
+class Administrador(db.Model, UserMixin):
     __tablename__="Administrador"
     id_administrador=db.Column(db.Integer, primary_key = True)
     Nombres_admin =db.Column(db.String(40))
@@ -10,7 +12,15 @@ class Administrador(db.Model):
     Tel_admin =db.Column(db.String(12))
     Tipo_admin =db.Column(db.String(15))
     username = db.Column(db.String(120), unique = True)
-    password =db.Column(db.String(60))
+    password =db.Column(db.String(120))
+
+    def get_id(self):
+        return str(self.id_administrador)
+
+##autentication for user  
+@login.user_loader
+def load_user(id):
+    return Administrador.query.get(id)
 
 #Modulo
 class Regional(db.Model):
@@ -49,7 +59,8 @@ class Instructor(db.Model):
     Horas_Semanales =db.Column(db.Integer)
     Horas_Diarias =db.Column(db.Integer)
     Id_Centro= db.Column(db.Integer,
-                          db.ForeignKey('id_Centro'))
+                          db.ForeignKey('Centro.id_Centro'))
+    Centro = relationship('Centro')
 
 class Ambiente(db.Model):
     __tablename__="Ambiente"
@@ -76,7 +87,8 @@ class Programa (db.Model):
     id_Programa =db.Column(db.Integer, primary_key = True)
     Nombre_progr =db.Column(db.String(40))
     Id_Coordinacion= db.Column(db.Integer,
-                          db.ForeignKey('id_Coordinacion'))
+                          db.ForeignKey('Coordinacion.id_Coordinacion'))
+    Coordinacion = relationship('Coordinacion')
     
 class Ficha(db.Model):
     __tablename__="Ficha"

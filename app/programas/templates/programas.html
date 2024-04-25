@@ -1,35 +1,33 @@
 {% extends 'base.html' %}
 {%block content %}
-    <h1>Lista de Regionales</h1>    
-    <a href ="/regionales/createRegional"
+    <h1>Lista de Programas</h1>    
+    <a href ="/programas/createPrograma"
         class= "btn btn-success">Nuevo</a>
 <table class="table table-hoover">
     <thead>
         <tr>
             <th>id</th> 
-            <th>Nombres</th> 
-            <th>Departamento</th> 
-
+            <th>Nombre</th> 
         </tr>
     </thead>
     <tbody>
-        {% for regionales in regionales %}
+        {% for programas in programas %}
             <tr>
-                <td>{{ regionales.id_Regional }}</td>
-                <td>{{ regionales.Nombre }}</td>
-                <td>{{ regionales.Departamento }}</td>
+                <td>{{ programas.id_Programa }}</td>
+                <td>{{ programas.Nombre_progr}}</td>
+
                 <td>
-                    <a href="/regionales/editar/{{regionales.id_Regional}}">  
+                    <a href="/programas/editar/{{programas.id_Programa}}">  
                         Actualizar
                     </a>
                 </td>
                 <td>
-                    <a href="/regionales/eliminar/{{regionales.id_Regional}}">  
+                    <a href="/programas/eliminar/{{programas.id_Programa}}">  
                         Eliminar
                     </a>
                 </td>  
+    
             </tr>
-
         {% endfor %}
     </tbody>
 </table>

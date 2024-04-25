@@ -23,6 +23,12 @@ def listar(Id_Centro):
     return render_template("coordinaciones.html", 
                             coordinacion = coordinacion)      
 
+@coordinaciones.route('/listarCoordinacion_home/<Id_Centro>')
+def listar_home(Id_Centro):
+     ## seleccionar los productos
+    coordinacion = app.models.Coordinacion.query.filter_by(Id_Centro=Id_Centro).all()
+    return render_template("home_coordinaciones.html", 
+                            coordinacion = coordinacion)
 
 #Metodo para editar centro por id
 @coordinaciones.route('/editar/<id_Coordinacion>',methods=['GET','POST'])

@@ -6,13 +6,13 @@
     <title>Centros</title>
     <link rel="stylesheet" type="text/css" href="../static/home.css">
 </head>
+
 {%block content %} 
     <h1 class="title">Centros</h1>
     <div class="nav">
         <a class="links" href="/administrador/listarAdmins">Administradores</a>
         <a class="links" href="/regionales/listarRegion">Regionales</a>
         <a class="links" href="/centros/listarCentro_g">Centros</a>
-        <!-- <a class="links" href="/transversal/listarTransversal">Transversales</a> -->
     </div>
     
     <h2 class="title-2">Lista de Centros</h2>  
@@ -24,7 +24,7 @@
             <div class="card">
                 <img src="../static/SENA_COLOMBIA-logo-056E74F2AE-seeklogo.png" alt="" srcset="" width="100px" height="100px">
                 <p>{{ centro.Nombre }}</p>
-                <a class="button" href="/coordinaciones/listarCoordinacion/{{centro.id_Centro}}">Ingresar</a>
+                <a class="button" href="/coordinaciones/listarCoordinacion_home/{{centro.id_Centro}}">Ingresar</a>
             </div>
         {% endfor %}
     </div>

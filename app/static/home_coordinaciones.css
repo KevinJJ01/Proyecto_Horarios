@@ -1,6 +1,7 @@
 body{
     background-color: rgb(208, 208, 208);
     margin: 10px;
+    font-family: "Work Sans", sans-serif;
 }
 
 .title{
@@ -32,6 +33,7 @@ body{
     margin-left: 20px;
 }
 
+
 .card-container{
     display: flex;
 }
@@ -43,8 +45,8 @@ body{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: aliceblue;
     margin: 20px;
-    width: 220px;
-    height: 250px;
+    width: 250px;
+    height: 280px;
     font-size: 15px;
     text-align: center;
     
@@ -52,15 +54,33 @@ body{
 .card a {
     text-decoration: none;
     color: #333;
-    font-weight: bold;
+    font-weight: 500;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+.button-container a{
+    color: white;
 }
 
 .button{
-    color: white;
     text-align: center;
-    margin: 20px;
-    padding: 10px;
+    margin: 8px;
+    padding: 10px 20px;
     background-color: rgb(3, 161, 3);
     border-radius: 8px;
+}
 
+.button-c{
+    text-align: center;
+    margin: 8px;
+    padding: 10px 20px;
+    background-color: rgb(3, 161, 3);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
 }
