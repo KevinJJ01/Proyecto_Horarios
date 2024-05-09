@@ -1,16 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../static/index.css">
-    <title>Bienvenido</title>
-</head>
+{% extends "base.html" %}
 {%block content %} 
-    <h1 class="title">Horarios Sena</h1>
-    <div class="nav">
-        <a class="links" href="/auth/login">Iniciar Sesion</a>
-        <a class="links" href="">Soporte</a>
-        <a class="links" href="">Información</a>
+
+<body>
+    <div class="title-container-welcome">
+        <h1 class="title-welcome">CONOCIMIENTO Y EMPRENDIMIENTO PARA TODOS LOS COLOMBIANOS</h1>
     </div>
+    
+    <div class="content-init">
+        
+        <div class="info-container">
+            <h2 class="info">¿Para que sirven los Horarios en el Sena?</h2>
+        </div>
+            <div class="col">
+                <img class="img" src="{{url_for('static',filename='img/imagen1.png')}}">
+                <p class="textl">La principal función es poder organiarse en tiempos, las ventajas del sistema es que los horarios son mas faciles de realizar, tiene amplia cobertura y mucho más, quieres conocer del Sistema de Horarios, da click <a href="">aqui</a> </p>
+            </div>
+    
+        <div class="info-container">
+            <h2 class="info">¿Donde opera nuestro sistema de Horarios?</h2>
+        </div>
+            
+    
+        <div class="col">
+                
+            <p class="textl">Este sistema esta dirigido principlamente al Servicio Nacional de Aprendizaje (SENA) y actualmente la cobertura es a nivel Nacional, donde cualquier centro de alguna de las 33 regionales, podra hacer uso de este sin ningun problema, quieres conocer la cobertura, da click <a href="">aqui</a> </p>
+            <img class="img" src="{{url_for('static',filename='img/imagen2.png')}}">
+        </div>
+        
+    </div>
+</body>
+    
 {% endblock %}

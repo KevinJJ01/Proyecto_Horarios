@@ -1,24 +1,26 @@
-{% extends 'base.html'%}
 {% import 'bootstrap/wtf.html'as wtf%}
+{% extends 'base.html'%}
 
 {%block content %}
-    <h1>Iniciar Sesion</h1>
+
+    <div class="content-login">
     <form 
+        class="form-login"
         action=""
         method="POST" 
         novalidate
-        enctype="multipart/form-data"
-    >
-    {{wtf.quick_form(form)}}
-</form>
-{% for mensaje in get_flashed_messages() %} 
-    <div class="alert alert-success" >
-        <button type="button"
-                class="close"
-                data-dismiss="alert">
-            &times;
-        </button>
+        enctype="multipart/form-data">
+        {{wtf.quick_form(form)}}
+        <a href="/administrador/createAdmin"><i class="fa-solid fa-user-plus icon"></i></a>
+    </form>
+    
+    <img class="img-log" src="{{url_for('static',filename='img/login_img.png')}}">
+    </div>
+    {% for mensaje in get_flashed_messages() %} 
+    <div class="alert alert-danger" >
     {{ mensaje }}
     </div>
     {% endfor%}
+    
+    
 {% endblock %}

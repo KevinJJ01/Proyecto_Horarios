@@ -15,11 +15,12 @@ def login():
             return redirect('/auth/login')
         else:
             login_user(user, remember=True)
+            flash("Iniciaste sesión")
             return redirect('/centros/listarCentro')
     return render_template("login.html", form=form)
 
 @auth.route('/logout')
 def logout():
     logout_user()
-    flash("logout exite confirmed")
+    flash("Cierre de sesión exitoso")
     return redirect('/auth/login')

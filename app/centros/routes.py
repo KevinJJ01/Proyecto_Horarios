@@ -1,4 +1,5 @@
 from flask import render_template, flash,redirect
+from flask_login import login_required, current_user
 from app.centros import centros
 import app
 from .forms import NewCentroForm, EditCentroForm
@@ -19,11 +20,13 @@ def crear():
 
 #Metodo de listar centros en la vista home
 @centros.route('/listarCentro')
+@login_required
 def listar():
      ## seleccionar los productos
+    user = current_user
     centros = app.models.Centro.query.all()
     return render_template("home.html", 
-                            centros = centros)  
+                            centros=centros, user=user)  
 
 #Metodo listar centros en vista para procesos del mismo modulo
 @centros.route('/listarCentro_g')

@@ -20,7 +20,7 @@ app.config.from_object(Config)
 bootstrap = Bootstrap(app)
 
 #inicializar el objeto SQLALCHEMY
-db=SQLAlchemy(app)
+db= SQLAlchemy(app)
 migrate=Migrate(app, db)
 login=LoginManager(app)
 login.login_view="/auth/login"

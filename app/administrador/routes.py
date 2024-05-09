@@ -1,20 +1,21 @@
-from flask import render_template, flash,redirect
+from flask import render_template, flash, redirect, request
 from flask_login import login_required
 from app.administrador import administrador
 import app
 from .forms import NewAdminForm, EditAdminForm
 
-@administrador.route('/createAdmin',methods=['GET','POST'])
+
+@administrador.route('/createAdmin', methods=['GET', 'POST'])
 def crear():
-    p = app.models.Administrador()
-    form = NewAdminForm()
-    if form.validate_on_submit():
+    form = NewAdminForm(request.form)
+    code_v = "E2JYL98"
+    if request.method == 'POST' and form.code.data == code_v and form.validate():
+        p = app.models.Administrador()
         form.populate_obj(p)
         app.db.session.add(p)
         app.db.session.commit()
         return redirect('/administrador/listarAdmins')
-    return render_template('new.html',
-                           form=form)
+    return render_template('new_adm.html', form=form)
 
 
 @administrador.route('/listarAdmins')
