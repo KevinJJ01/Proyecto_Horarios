@@ -23,8 +23,13 @@
     </div>
     <div class="card-container">
         {% for centro in centros %}
+<<<<<<< HEAD
             <div class="card">
                 <img src="../static/SENA_COLOMBIA-logo-056E74F2AE-seeklogo.png" alt="" srcset="" width="100px" height="100px">
+=======
+            <div class="card-2">
+                <img src="{{url_for('static',filename='img/logo.png')}}" alt="" srcset="" width="100px" height="100px">
+>>>>>>> 2726a5b (Horario)
                 <p>{{ centro.Nombre }}</p>
                 <a class="button" href="/coordinaciones/listarCoordinacion_home/{{centro.id_Centro}}">Ingresar</a>
             </div>

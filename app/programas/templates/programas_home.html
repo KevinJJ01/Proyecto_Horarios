@@ -2,7 +2,10 @@
 {%block content %}
 
 <div class="nav">
+<<<<<<< HEAD
     <a class="links" href="/transversal/listarTransversal">Transversales</a>
+=======
+>>>>>>> 2726a5b (Horario)
     <a class="links" href="/instructores/listarInstructores">Instructores</a>
 </div>
 
@@ -19,7 +22,11 @@
         {% for programas in programas %}
         
             <div class="card-2">
+<<<<<<< HEAD
                 <img src="/static/SENA_COLOMBIA-logo-056E74F2AE-seeklogo.png" alt="" srcset="" width="80px" height="80px">
+=======
+                <img src="{{url_for('static',filename='img/logo.png')}}" alt="" srcset="" width="80px" height="80px">
+>>>>>>> 2726a5b (Horario)
                 <p>{{ programas.id_Programa }}</p>
                 <p>{{ programas.Nombre_progr }}</p>
 

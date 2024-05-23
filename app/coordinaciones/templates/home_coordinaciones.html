@@ -13,7 +13,11 @@
         {% for coordinacion in coordinacion %}
         
             <div class="card-2">
+<<<<<<< HEAD
                 <img src="/static/SENA_COLOMBIA-logo-056E74F2AE-seeklogo.png" alt="" srcset="" width="80px" height="80px">
+=======
+                <img src="{{url_for('static',filename='img/logo.png')}}" alt="" srcset="" width="80px" height="80px">
+>>>>>>> 2726a5b (Horario)
                 <p>{{ coordinacion.id_Coordinacion }}</p>
                 <p>{{ coordinacion.Nombre_coordinacion }}</p>
                 <p>{{ coordinacion.descripcion_coordinacion}}</p>

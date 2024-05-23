@@ -105,15 +105,39 @@ body{
   display: inline-block;
 }
 
+<<<<<<< HEAD
 .icon{
   color: #39A900;
   font-size: 30px;
   padding: 20px;
+=======
+
+.container-register{
+  text-align: center;
+}
+
+.icon{
+  color: #39A900;
+  font-size: 15px;
+  padding: 15px;
+>>>>>>> 2726a5b (Horario)
   margin: 2px;
   border: #39A900 3px dashed; 
   border-radius: 50%;
 }
 
+<<<<<<< HEAD
+=======
+.register-link{
+  color: #000000;
+  color: #39A900;
+  font-size: 20px;
+  padding: 0px;
+  margin: 10px;
+  text-decoration: none;
+}
+
+>>>>>>> 2726a5b (Horario)
 .img-log{
   width: 50%;
   height: auto;
@@ -191,6 +215,7 @@ body{
 .card-container{
   display: flex;
 }
+<<<<<<< HEAD
 .card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -205,6 +230,9 @@ body{
   text-align: center;
   
 }
+=======
+
+>>>>>>> 2726a5b (Horario)
 
 .card-2 {
   border: 1px solid #ccc;
@@ -212,7 +240,11 @@ body{
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
   background-color: rgb(243, 243, 243);
+=======
+  background-color: rgb(250, 255, 244);
+>>>>>>> 2726a5b (Horario)
   margin: 20px;
   width: 280px;
   height: 300px;
@@ -233,6 +265,10 @@ body{
   padding: 10px;
   background-color: rgb(3, 161, 3);
   border-radius: 8px;
+<<<<<<< HEAD
+=======
+  text-decoration: none;
+>>>>>>> 2726a5b (Horario)
 
 }
 
@@ -258,4 +294,44 @@ body{
   color: white;
   display: flex;
   align-items: flex-start;
+<<<<<<< HEAD
+=======
+}
+
+/* horario */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 10px;
+  text-align: center;
+}
+
+td {
+  cursor: pointer;
+}
+
+td:hover {
+  background-color: #f0f0f0;
+}
+
+.table{
+  border: 1px solid #dad9d9 !important;
+}
+
+.filled {
+  background-color: #55ff001f !important; /* Azul */
+  color: white;
+}
+
+.text-pop{
+  align-items: flex-start;
+}
+
+.Agregar{
+  background-color: #ff730018 !important; /* Verde */
+  color: white;
+>>>>>>> 2726a5b (Horario)
 }

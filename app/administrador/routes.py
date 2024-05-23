@@ -1,5 +1,9 @@
 from flask import render_template, flash, redirect, request
+<<<<<<< HEAD
 from flask_login import login_required
+=======
+from flask_login import login_required, current_user
+>>>>>>> 2726a5b (Horario)
 from app.administrador import administrador
 import app
 from .forms import NewAdminForm, EditAdminForm
@@ -9,12 +13,25 @@ from .forms import NewAdminForm, EditAdminForm
 def crear():
     form = NewAdminForm(request.form)
     code_v = "E2JYL98"
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 2726a5b (Horario)
     if request.method == 'POST' and form.code.data == code_v and form.validate():
         p = app.models.Administrador()
         form.populate_obj(p)
         app.db.session.add(p)
         app.db.session.commit()
+<<<<<<< HEAD
         return redirect('/administrador/listarAdmins')
+=======
+        
+        # Verifica si el usuario está autenticado después de agregar el administrador
+        if current_user.is_authenticated:
+            return redirect('/administrador/listarAdmins')
+        else:
+            return redirect('/auth/login')
+>>>>>>> 2726a5b (Horario)
     return render_template('new_adm.html', form=form)
 
 
