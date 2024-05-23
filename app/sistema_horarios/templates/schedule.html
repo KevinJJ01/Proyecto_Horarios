@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+    <title>Horario</title>
+
+{% block content %} 
+<body>
+    <script>
+        function showForm(day, hour) {
+            $('#day').val(day);
+            $('#hour').val(hour);
+            $('#scheduleModal').modal('show');
+        }
+    </script>
+
+    
+<body>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Hora</th>
+                    {% for day in schedule %}
+                    <th>{{ day }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for hour in range(7, 24) %}
+                <tr>
+                    <td>{{ (hour - 12 if hour > 12 else hour) }}:00 {{ 'AM' if hour < 12 else 'PM' }}</td>
+                    {% for day in schedule %}
+                    {% set cell = schedule[day][hour] %}
+                    <td id="{{ day }}-{{ hour }}" class="{% if cell.name %}filled{% else %}Agregar{% endif %}" onclick="showForm('{{ day }}', '{{ hour }}')">
+                        {% if cell.name %}
+                            <strong>{{ cell.name }}</strong><br>
+                            {{ cell.subject }}<br>
+                            {{ cell.room }}<br>
+                            {{ cell.instructor }}
+                        {% else %}
+                            
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="scheduleModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Agrega la información necesaria</h4>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form id="updateForm" action="/bloques/update" method="POST">
+                        <input type="hidden" name="day" id="day">
+                        <input type="hidden" name="hour" id="hour">
+                        <div class="form-group">
+                            <label for="name" class="text-pop">programa:</label>
+                            <select class="form-control" id="name" name="name" required>
+                                <option value="">Selecciona un programa</option>
+                                {% for programa in programas %}
+                                    <option value="{{ programa.Nombre_progr }}">{{ programa.Nombre_progr }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="text-pop">Subject:</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="room" class="text-pop">Room:</label>
+                            <input type="text" class="form-control" id="room" name="room" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="instructor" class="text-pop">Instructor:</label>
+                            <input type="text" class="form-control" id="instructor" name="instructor" required>
+                        </div>
+                        <button type="submit" class="btn btn-success button-c">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
