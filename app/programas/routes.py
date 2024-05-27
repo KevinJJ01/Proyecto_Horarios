@@ -12,7 +12,7 @@ def crear():
         app.db.session.add(p)
         app.db.session.commit()
         return redirect(url_for('programas.listar', Id_Coordinacion=p.Id_Coordinacion))
-    return render_template('new.html',
+    return render_template('new_pro.html',
                            form=form)
 
 

@@ -13,7 +13,7 @@ def crear():
         app.db.session.add(p)
         app.db.session.commit()
         return redirect('/instructores/listarInstructores')
-    return render_template('new.html',
+    return render_template('new_ins.html',
                            form=form)
 
 

@@ -19,7 +19,7 @@ def crear():
 @coordinaciones.route('/listarCoordinacion/<Id_Centro>')
 def listar(Id_Centro):
      ## seleccionar los productos
-    coordinacion = app.models.Coordinacion.query.filter_by(Id_Centro=Id_Centro).all()
+    coordinacion = app.models.Coordinacion.query.filter_by(Id_Centro=Id_Centro).all() 
     return render_template("coordinaciones.html", 
                             coordinacion = coordinacion)      
 

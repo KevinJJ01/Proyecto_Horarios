@@ -45,6 +45,8 @@ class NewAdminForm(FlaskForm):
     password = PasswordField("Ingrese la constraseña",
                           validators=[InputRequired(), Length(8)]
                         )
+    code = StringField("Ingrese el codigo para registrarse", validators=[InputRequired(),Length(5)])
+
     submit = SubmitField("Guardar")
     
 

@@ -8,11 +8,14 @@ from app.coordinaciones import coordinaciones
 from app.programas import programas
 from app.instructores import instructores
 from app.administrador import administrador
+
+""" from app.horarios import horarios """
+from app.sistema_horarios import sistema_horarios
+
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
-
 
 #inicializar el objeto flask
 app = Flask(__name__)
@@ -20,7 +23,7 @@ app.config.from_object(Config)
 bootstrap = Bootstrap(app)
 
 #inicializar el objeto SQLALCHEMY
-db=SQLAlchemy(app)
+db= SQLAlchemy(app)
 migrate=Migrate(app, db)
 login=LoginManager(app)
 login.login_view="/auth/login"
@@ -34,6 +37,8 @@ app.register_blueprint(transversal)
 app.register_blueprint(coordinaciones)
 app.register_blueprint(programas)
 app.register_blueprint(instructores)
+""" app.register_blueprint(horarios) """
+app.register_blueprint(sistema_horarios)
 
 
 @app.route('/')

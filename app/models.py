@@ -58,8 +58,7 @@ class Instructor(db.Model):
     Tipo_Contrato =db.Column(db.String(20))
     Horas_Semanales =db.Column(db.Integer)
     Horas_Diarias =db.Column(db.Integer)
-    Id_Centro= db.Column(db.Integer,
-                          db.ForeignKey('Centro.id_Centro'))
+    Id_Centro= db.Column(db.Integer, db.ForeignKey('Centro.id_Centro'))
     Centro = relationship('Centro')
 
 class Ambiente(db.Model):
@@ -70,8 +69,7 @@ class Ambiente(db.Model):
     tipo =db.Column(db.String(40))
     Horas_Disp =db.Column(db.Integer)
     Horas_Ocup =db.Column(db.Integer)
-    Id_Centro= db.Column(db.Integer,
-                          db.ForeignKey('id_Centro'))
+    Id_Centro= db.Column(db.Integer, db.ForeignKey('id_Centro'))
     
 #Modulo
 class Coordinacion(db.Model):
@@ -86,15 +84,13 @@ class Programa (db.Model):
     __tablename__="Programa"
     id_Programa =db.Column(db.Integer, primary_key = True)
     Nombre_progr =db.Column(db.String(40))
-    Id_Coordinacion= db.Column(db.Integer,
-                          db.ForeignKey('Coordinacion.id_Coordinacion'))
+    Id_Coordinacion= db.Column(db.Integer, db.ForeignKey('Coordinacion.id_Coordinacion'))
     Coordinacion = relationship('Coordinacion')
     
 class Ficha(db.Model):
     __tablename__="Ficha"
     id_Ficha =db.Column(db.Integer, primary_key = True)
-    Id_Programa= db.Column(db.Integer,
-                          db.ForeignKey('id_Programa'))
+    Id_Programa= db.Column(db.Integer, db.ForeignKey('id_Programa'))
     
 class Tematica (db.Model):
     __tablename__="Tematica"
@@ -103,36 +99,33 @@ class Tematica (db.Model):
     Duracion_Semana =db.Column(db.Integer)
     Duracion_Trimestre =db.Column(db.Integer)
     Desripcion =db.Column(db.String(40)) 
-    Id_Programa= db.Column(db.Integer,
-                          db.ForeignKey('id_Programa'))
+    Id_Programa= db.Column(db.Integer, db.ForeignKey('id_Programa'))
     
 class Resultado_de_aprendizaje(db.Model):
     __tablename__="Resultado_de_aprendizaje"
     id_Resul_apr =db.Column(db.Integer, primary_key = True)
     Nombre =db.Column(db.String(40))
     Estado =db.Column(db.String(20))
-    Id_Tematica= db.Column(db.Integer,
-                          db.ForeignKey('id_Tematica'))
+    Id_Tematica= db.Column(db.Integer, db.ForeignKey('id_Tematica'))
+
+
+class Horario(db.Model):
+    __tablename__ ="Horario"
+    id_Horario =db.Column(db.Integer, primary_key= True)
+    Nombre_iden =db.Column(db.String(30))
+    NumeroDias =db.Column(db.Integer)
+    NumeroBloquesxDia =db.Column(db.Integer)
+    Id_Programa= db.Column(db.Integer, db.ForeignKey('id_programa'))
+    
 
 class Bloque(db.Model):
     __tablename__="Bloque"
     id_Bloque =db.Column(db.Integer, primary_key = True)
     Dia =db.Column(db.String(40))
-    Id_Tematica= db.Column(db.Integer,
-                          db.ForeignKey('id_Tematica'))
-    Id_Ficha= db.Column(db.Integer,
-                          db.ForeignKey('id_Ficha'))
-    Id_Tranversal= db.Column(db.Integer,
-                          db.ForeignKey('id_Transversal'))
-    Id_Ambiente= db.Column(db.Integer,
-                          db.ForeignKey('id_Ambiente'))
-    Id_Instructor= db.Column(db.Integer,
-                          db.ForeignKey('id_Instructor'))
+    Id_Horario= db.Column(db.Integer, db.ForeignKey('id_Horario'))
+    Id_Tematica= db.Column(db.Integer, db.ForeignKey('id_Tematica'))
+    Id_Ficha= db.Column(db.Integer, db.ForeignKey('id_Ficha'))
+    Id_Tranversal= db.Column(db.Integer, db.ForeignKey('id_Transversal'))
+    Id_Ambiente= db.Column(db.Integer, db.ForeignKey('id_Ambiente'))
+    Id_Instructor= db.Column(db.Integer,db.ForeignKey('id_Instructor'))
     
-class Horario(db.Model):
-    __tablename__ ="Horario"
-    id_Horario =db.Column(db.Integer, primary_key= True)
-    NumeroDias =db.Column(db.Integer)
-    NumeroBloquesxDia =db.Column(db.Integer)
-    Id_Bloque= db.Column(db.Integer,
-                          db.ForeignKey('id_Bloque'))

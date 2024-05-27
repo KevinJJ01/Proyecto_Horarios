@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/static/home_coordinaciones.css">
-</head>
-<body>
-
-<h2 class="title-2">Programas</h2>
+{% extends "base.html" %}
+{%block content %}
 
 <div class="nav">
-    <a class="links" href="/transversal/listarTransversal">Transversales</a>
     <a class="links" href="/instructores/listarInstructores">Instructores</a>
 </div>
-    
-<h3 class="message">Elige el Programa donde trabajaras tus horarios</h3>
 
-<a class="button-c" href ="/programas/createPrograma">Nuevo</a>
+<div class="title-container">
+    <h2 class="title">Programas</h2>
+</div>
 
-{%block content %}
+<div class="but-cont">
+    <a class="button-c" href ="/programas/createPrograma">Nuevo</a>
+</div>
+
+
     <div class="card-container">
         {% for programas in programas %}
         
-            <div class="card">
-                <img src="/static/SENA_COLOMBIA-logo-056E74F2AE-seeklogo.png" alt="" srcset="" width="80px" height="80px">
+            <div class="card-2">
+                <img src="{{url_for('static',filename='img/logo.png')}}" alt="" srcset="" width="80px" height="80px">
                 <p>{{ programas.id_Programa }}</p>
                 <p>{{ programas.Nombre_progr }}</p>
 
